@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+    public Transform bulletSpawn;
+    public GameObject bulletPrefab;
+    public float projectileSpeed;
+    public float fireSpeed;
+
+    private Vector3 fireDirection;
+    private float xAxis, zAxis;
+    private bool firing = false;
+
 	void Update () {
-		
+        xAxis = Input.GetAxis("Fire1");
+        zAxis = Input.GetAxis("Fire2");
+
+        fireDirection = new Vector3(xAxis, 0, zAxis);
+        
+        if (firing == false)
+        {
+            if (Input.GetAxisRaw("Fire1") != 0 || Input.GetAxisRaw("Fire2") != 0)
+            {
+                StartCoroutine(FireProjectile());
+            }
+        }
 	}
+
+    IEnumerator FireProjectile()
+    {
+        firing = true;
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().AddForce(fireDirection.normalized * projectileSpeed);
+        
+        yield return new WaitForSeconds(fireSpeed);
+        firing = false;    
+    }
 }
