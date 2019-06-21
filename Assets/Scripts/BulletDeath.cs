@@ -7,12 +7,10 @@ public class BulletDeath : MonoBehaviour {
     public GameObject bulletDeathParticles;
 
     private Rigidbody rb;
-    private Vector3 particleSpawnRotation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        particleSpawnRotation = rb.velocity;
         StartCoroutine(DestroyBullet());
     }
 
@@ -27,6 +25,10 @@ public class BulletDeath : MonoBehaviour {
         if (other.gameObject.tag != "Player" && other.gameObject.tag != "Bullet")
         {
             Debug.Log(other.gameObject.tag);
+            if(other.gameObject.tag == "Enemy")
+            {
+                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+            }
             ContactPoint contact = other.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
