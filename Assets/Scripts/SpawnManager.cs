@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
-
-    public Transform[] enemySpawnsArray;
+ 
     public int spawnCount;
-    public GameObject enemy;
+    public GameObject[] enemy;
     public float spawnRate;
 
-	void Start () {
+    private Transform[] enemySpawnsArray;
+
+    void Start () {
         FindSpawnPoints();
         StartCoroutine(SpawnEnemies());
-	}
-	
-	void Update () {
-		
 	}
 
     void FindSpawnPoints()
@@ -32,7 +29,7 @@ public class SpawnManager : MonoBehaviour {
     {
         for(int i = 0; i < spawnCount; i++)
         {
-            Instantiate(enemy, enemySpawnsArray[Random.Range(0, transform.childCount - 1)].position, Quaternion.identity);
+            Instantiate(enemy[Random.Range(0,2)], enemySpawnsArray[Random.Range(0, transform.childCount - 1)].position, Quaternion.identity);
             yield return new WaitForSeconds(spawnRate);
         }
     }

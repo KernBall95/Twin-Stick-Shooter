@@ -6,13 +6,16 @@ using UnityEngine.AI;
 public class EnemyMoveToPlayer : MonoBehaviour {
 
     public GameObject target;
-
-    private NavMeshAgent agent;
+    public bool variableSpeedEnabled;
+    public float minSpeed, maxSpeed;
+    public NavMeshAgent agent;
 
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.Find("Temp Player");
-        agent.speed = Random.Range(16, 20);
+
+        if(variableSpeedEnabled)
+            agent.speed = Random.Range(minSpeed, maxSpeed);
 	}
 	
 	void Update () {

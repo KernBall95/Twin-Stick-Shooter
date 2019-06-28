@@ -6,11 +6,11 @@ public class BulletDeath : MonoBehaviour {
 
     public GameObject bulletDeathParticles;
 
-    private Rigidbody rb;
+    private string bulletName;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        bulletName = gameObject.name;
         StartCoroutine(DestroyBullet());
     }
 
@@ -22,18 +22,27 @@ public class BulletDeath : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Bullet")
+        Debug.Log(bulletName);
+        if (bulletName == "Bullet(Clone)")
         {
-            Debug.Log(other.gameObject.tag);
-            if(other.gameObject.tag == "Enemy")
+            Debug.Log("Player shot!");
+            if (other.gameObject.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+                Debug.Log("Player hit enemy!");
+                other.gameObject.GetComponent<EnemyHealth>().EnemyTakeDamage(1);
             }
+        }
+        else if (bulletName == "EnemyBullet(Clone)")
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponent<PlayerHealth>().PlayerTakeDamage(1);
+            }
+        }
             ContactPoint contact = other.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
-            GameObject particleEffect = Instantiate(bulletDeathParticles, pos, rot);
-            Destroy(gameObject);
-        }
+            Instantiate(bulletDeathParticles, pos, rot);
+            Destroy(gameObject);       
     }
 }

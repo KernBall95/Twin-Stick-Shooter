@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour {
 
     public int maxHealth;
 
@@ -12,15 +12,12 @@ public class EnemyHealth : MonoBehaviour {
         currentHealth = maxHealth;
 	}
 
-    public void EnemyTakeDamage(int damage)
+    public void PlayerTakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Enemy health: " + currentHealth);
+        Debug.Log(currentHealth);
 
-        if (currentHealth <= 0)
+        if(currentHealth <= 0)
             Destroy(gameObject);
     }
-
-
-
 }
