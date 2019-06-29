@@ -28,23 +28,18 @@ public class EnemyShootWhenStopped : MonoBehaviour {
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-               // if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                //{
-                    
-                    if (isShooting == false)
-                        StartCoroutine(ShootTarget());
-               // }
+                if (isShooting == false)
+                    StartCoroutine(ShootBullet());
             }
         }
 	}
 
-    IEnumerator ShootTarget()
+    IEnumerator ShootBullet()
     {
         isShooting = true;
         
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
-        Debug.Log("Shot at " + target);
         yield return new WaitForSeconds(fireRate);
 
         isShooting = false;

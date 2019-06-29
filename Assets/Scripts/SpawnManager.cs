@@ -21,7 +21,6 @@ public class SpawnManager : MonoBehaviour {
         for (int i = 0; i < transform.childCount; i++)
         {
             enemySpawnsArray[i] = transform.GetChild(i);
-            Debug.Log(enemySpawnsArray[i]);
         }
     }
 
@@ -29,7 +28,7 @@ public class SpawnManager : MonoBehaviour {
     {
         for(int i = 0; i < spawnCount; i++)
         {
-            Instantiate(enemy[Random.Range(0,2)], enemySpawnsArray[Random.Range(0, transform.childCount - 1)].position, Quaternion.identity);
+            Instantiate(enemy[Random.Range(0,3)], enemySpawnsArray[Random.Range(0, transform.childCount - 1)].position, Quaternion.identity);
             yield return new WaitForSeconds(spawnRate);
         }
     }

@@ -16,19 +16,16 @@ public class BulletDeath : MonoBehaviour {
 
 	IEnumerator DestroyBullet()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log(bulletName);
         if (bulletName == "Bullet(Clone)")
         {
-            Debug.Log("Player shot!");
             if (other.gameObject.tag == "Enemy")
             {
-                Debug.Log("Player hit enemy!");
                 other.gameObject.GetComponent<EnemyHealth>().EnemyTakeDamage(1);
             }
         }

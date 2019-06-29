@@ -6,7 +6,8 @@ public class PlayerHealth : MonoBehaviour {
 
     public int maxHealth;
 
-    private int currentHealth;
+    [HideInInspector]
+    public int currentHealth;
 
 	void Start () {
         currentHealth = maxHealth;
