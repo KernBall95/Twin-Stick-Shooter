@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
     public int currentHealth;
 
 	void Start () {
+
         currentHealth = maxHealth;
 	}
 
@@ -20,5 +21,5 @@ public class PlayerHealth : MonoBehaviour {
 
         if(currentHealth <= 0)
             Destroy(gameObject);
-    }
+    }           
 }

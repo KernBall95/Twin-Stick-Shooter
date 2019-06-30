@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 195138836352495090}
   - component: {fileID: 114951160108170554}
   - component: {fileID: 114638693497274054}
+  - component: {fileID: 114716264730562564}
   m_Layer: 11
   m_Name: RangedEnemy(Homing)
   m_TagString: Enemy
@@ -277,6 +278,20 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4729737010617536}
   projectileSpeed: 15
   fireRate: 3
+--- !u!114 &114716264730562564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991382186015172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd150ec7e0fd0a341b642937ad52b8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickups:
+  - {fileID: 1127473640610284, guid: f0172455e212195438e9ea022f2eb5a8, type: 2}
+  - {fileID: 1011166921749382, guid: e7a6a5969ae2c2249b695e66c0153807, type: 2}
 --- !u!114 &114814882378640500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  isDead: 0
 --- !u!114 &114951160108170554
 MonoBehaviour:
   m_ObjectHideFlags: 1

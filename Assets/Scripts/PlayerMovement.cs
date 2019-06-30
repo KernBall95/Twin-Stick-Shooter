@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float moveSpeed;
-
-    Vector3 movementDirection;
-    Vector3 rotation;
+    private float moveSpeed;
+    private Vector3 movementDirection;
+    private Vector3 rotation;
     private float xAxis, zAxis, xRot, zRot;
-    Rigidbody rb;
+    private Rigidbody rb;
+    private PlayerStats pStats;
 	
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        pStats = GetComponent<PlayerStats>();
     }
 
 	void FixedUpdate () {
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 
         rotation = new Vector3(xRot, 0, zRot);
         movementDirection = new Vector3(xAxis, 0, zAxis);
+        moveSpeed = pStats.speed;
         rb.velocity = movementDirection * moveSpeed;
 
         if(Input.GetAxisRaw("Fire1") != 0 || Input.GetAxisRaw("Fire2") != 0)

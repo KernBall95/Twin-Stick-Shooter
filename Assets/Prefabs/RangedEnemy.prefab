@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 195308598300263854}
   - component: {fileID: 114746158127252148}
   - component: {fileID: 114542492451885816}
+  - component: {fileID: 114339738757161894}
   m_Layer: 11
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -272,6 +273,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  isDead: 0
+--- !u!114 &114339738757161894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917442679110614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd150ec7e0fd0a341b642937ad52b8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickups:
+  - {fileID: 1127473640610284, guid: f0172455e212195438e9ea022f2eb5a8, type: 2}
+  - {fileID: 1011166921749382, guid: e7a6a5969ae2c2249b695e66c0153807, type: 2}
 --- !u!114 &114542492451885816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,7 +303,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1861289579148930, guid: 2090ad17cffa97a43a6f044ff953a89f,
     type: 2}
   bulletSpawn: {fileID: 4041513656910926}
-  projectileSpeed: 1250
+  projectileSpeed: 1100
   fireRate: 1
 --- !u!114 &114746158127252148
 MonoBehaviour:

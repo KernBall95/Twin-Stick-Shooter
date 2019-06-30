@@ -7,11 +7,17 @@ public class PlayerShoot : MonoBehaviour {
     public Transform bulletSpawn;
     public GameObject bulletPrefab;
     public float projectileSpeed;
-    public float fireSpeed;
 
+    private float fireSpeed;
     private Vector3 fireDirection;
     private float xAxis, zAxis;
     private bool firing = false;
+    private PlayerStats pStats;
+
+    void Start()
+    {
+        pStats = GetComponent<PlayerStats>();
+    }
 
 	void Update () {
         xAxis = Input.GetAxis("Fire1");
@@ -33,7 +39,8 @@ public class PlayerShoot : MonoBehaviour {
         firing = true;
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().AddForce(fireDirection.normalized * projectileSpeed);
-        
+
+        fireSpeed = pStats.fireRate;
         yield return new WaitForSeconds(fireSpeed);
         firing = false;    
     }

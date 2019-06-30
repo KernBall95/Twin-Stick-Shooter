@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 195877868338991198}
   - component: {fileID: 114982932115277272}
   - component: {fileID: 114697994926482788}
+  - component: {fileID: 114290639611306872}
   m_Layer: 11
   m_Name: MeleeEnemy1
   m_TagString: Enemy
@@ -231,6 +232,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1020126402015992}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114290639611306872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020126402015992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd150ec7e0fd0a341b642937ad52b8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickups:
+  - {fileID: 1127473640610284, guid: f0172455e212195438e9ea022f2eb5a8, type: 2}
+  - {fileID: 1011166921749382, guid: e7a6a5969ae2c2249b695e66c0153807, type: 2}
 --- !u!114 &114501726227597408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  isDead: 0
 --- !u!114 &114697994926482788
 MonoBehaviour:
   m_ObjectHideFlags: 1

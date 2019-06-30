@@ -1099,12 +1099,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bacc14d80342f641bcdec0f488a354f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCount: 100
+  spawnCount: 5
   enemy:
   - {fileID: 1020126402015992, guid: 8bea661861a987c4493848b4e95cb183, type: 2}
   - {fileID: 1917442679110614, guid: d842f3be98dd37b48a434c7e7aea8c0d, type: 2}
   - {fileID: 1991382186015172, guid: e9167fbc750098b46936d2504837fa53, type: 2}
-  spawnRate: 0.5
+  spawnRate: 0.75
+  waveIncrement: 5
+  spawnedEnemies: []
 --- !u!1 &771073349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2261,7 @@ GameObject:
   - component: {fileID: 1852799063}
   - component: {fileID: 1852799065}
   - component: {fileID: 1852799066}
+  - component: {fileID: 1852799067}
   m_Layer: 10
   m_Name: Temp Player
   m_TagString: Player
@@ -2347,7 +2350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c5d129a805f1d41b92f8781431187a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
 --- !u!54 &1852799064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2378,7 +2380,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1521137755447352, guid: f07a09a0581851a499ce63ad91fcf6f7,
     type: 2}
   projectileSpeed: 2000
-  fireSpeed: 0.1
 --- !u!114 &1852799066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,6 +2393,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1000
   currentHealth: 0
+--- !u!114 &1852799067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852799058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727eaaf8f12bd3a42837f6654ead3c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 21
+  fireRate: 0.1
 --- !u!1 &1855089809
 GameObject:
   m_ObjectHideFlags: 0

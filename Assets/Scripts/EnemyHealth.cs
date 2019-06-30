@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     public int maxHealth;
+    public bool isDead;
 
     private int currentHealth;
-
+    
 	void Start () {
+        isDead = false;
         currentHealth = maxHealth;
 	}
 
@@ -17,6 +19,6 @@ public class EnemyHealth : MonoBehaviour {
         currentHealth -= damage;
 
         if (currentHealth <= 0)
-            Destroy(gameObject);
+            isDead = true;                         
     }
 }
